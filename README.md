@@ -67,14 +67,10 @@ docker compose run etl python init_db.py
 - Tabela detalhada dos dados
 - Rankings de maiores portos
 
-## 📁 Dados
-O dataset é baseado em registros públicos de atividade portuária global:
-- `Daily_Port_Activity_Data_and_Trade_Estimates.csv`
+## 🔗 Fonte dos Dados
 
-## 📬 Contato
-Desenvolvido por [Seu Nome]. Para dúvidas ou sugestões:
-- Email: seuemail@exemplo.com
-- GitHub: https://github.com/seu-usuario
+Os dados são provenientes do Kaggle:
+[Daily Port Activity Data and Trade Estimates](https://www.kaggle.com/datasets/arunvithyasegar/daily-port-activity-data-and-trade-estimates/data)
 
 ---
 
