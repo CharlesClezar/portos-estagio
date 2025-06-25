@@ -84,6 +84,16 @@ A documentação interativa (Swagger) pode ser acessada em:
 - Tabela detalhada dos dados
 - Rankings de maiores portos
 
+## Informações sobre o desenvolvimento
+**Docker** - Utilizado docker para subir a aplicação, não sendo necessário demais instalações
+
+**Testes** - Utilizado a biblioteca `PyTest` para testar algumas funcionalidades
+
+**CI/CD** - Integrado com o `GitHub Actions`, execução de testes é feita no momento em que um push é realizado, independente da branch [![GitHub Actions](https://github.com/CharlesClezar/portos-estagio/actions/workflows/github-actions-demo.yml/badge.svg?branch=master)](https://github.com/CharlesClezar/CharlesClezar-Turma2-Trabalho1/actions)
+
+## Melhorias futuras
+ - Estão descritas na aba de [`Issues`](https://github.com/CharlesClezar/portos-estagio/issues) ajustes pertinentes para melhoria da aplicação 
+
 ---
 
 > Projeto desenvolvido como parte do estágio. Todos os dados são fictícios ou derivados de fontes públicas.
