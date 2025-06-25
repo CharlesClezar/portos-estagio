@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  etl:
+    build:
+      context: ./etl
+      dockerfile: Dockerfile
+    container_name: portos_etl
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://admin:dbaaccesskey@db:5432/portos-estagio
+    volumes:
+      - ./etl:/app
+      - ./db:/db
+
   db:
     image: postgres:15
     container_name: portos_db
@@ -26,27 +39,6 @@ services:
       - ./backend:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    container_name: portos_frontend
-    ports:
-      - "3000:80"
-
-
-  etl:
-    build:
-      context: ./etl
-      dockerfile: Dockerfile
-    container_name: portos_etl
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: postgresql://admin:dbaaccesskey@db:5432/portos-estagio
-    volumes:
-      - ./etl:/app
-      - ./db:/db
 
 
 volumes:
