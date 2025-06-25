@@ -50,7 +50,17 @@ O `docker-compose` já fornece o `DATABASE_URL`, mas você pode definir manualme
 - Descompacte o arquivo
 - Disponibilize o arquivo CSV na pasta etl/
 
-### 4. Execute os containers
+### 4. Reexecutar ETL manualmente (opcional)
+```bash
+docker compose run etl python carregamento.py
+```
+
+### 5. Aplicar Views e Índices (se ainda não rodou)
+```bash
+docker compose run etl python init_db.py
+```
+
+### 6. Execute os containers
 ```bash
 docker compose up --build
 ```
@@ -61,15 +71,6 @@ Isso irá:
 - Disponibilizar a API em `http://localhost:8000`
 - Disponibilizar o frontend em `http://localhost:3000`
 
-### 5. Reexecutar ETL manualmente (opcional)
-```bash
-docker compose run etl python carregamento.py
-```
-
-### 6. Aplicar Views e Índices (se ainda não rodou)
-```bash
-docker compose run etl python init_db.py
-```
 
 ## Documentação da API
 
@@ -86,10 +87,6 @@ A documentação interativa (Swagger) pode ser acessada em:
 
 ## Informações sobre o desenvolvimento
 **Docker** - Utilizado docker para subir a aplicação, não sendo necessário demais instalações
-
-**Testes** - Utilizado a biblioteca `PyTest` para testar algumas funcionalidades
-
-**CI/CD** - Integrado com o `GitHub Actions`, execução de testes é feita no momento em que um push é realizado, independente da branch [![GitHub Actions](https://github.com/CharlesClezar/portos-estagio/actions/workflows/github-actions-demo.yml/badge.svg?branch=master)](https://github.com/CharlesClezar/CharlesClezar-Turma2-Trabalho1/actions)
 
 ## Melhorias futuras
  - Estão descritas na aba de [`Issues`](https://github.com/CharlesClezar/portos-estagio/issues) ajustes pertinentes para melhoria da aplicação 
