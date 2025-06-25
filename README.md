@@ -47,12 +47,12 @@ O `docker-compose` já fornece o `DATABASE_URL`, mas você pode definir manualme
 - Descompacte o arquivo
 - Disponibilize o arquivo CSV na pasta etl/
 
-### 4. Reexecutar ETL manualmente (opcional)
+### 4. Executar ETL manualmente
 ```bash
 docker compose run etl python carregamento.py
 ```
 
-### 5. Aplicar Views e Índices (se ainda não rodou)
+### 5. Aplicar Views e Índices (se necessário rodar direto via DB)
 ```bash
 docker compose run etl python init_db.py
 ```
