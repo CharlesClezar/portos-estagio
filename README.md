@@ -60,6 +60,12 @@ docker compose run etl python carregamento.py
 docker compose run etl python init_db.py
 ```
 
+## 📘 Documentação da API
+
+A documentação interativa (Swagger) pode ser acessada em:
+
+[http://localhost:8000/docs](http://localhost:8000/docs)
+
 ## 📊 Funcionalidades
 - Painel resumido (volume total, chamadas, média, portos)
 - Filtros por data, tipo de embarcação, porto
