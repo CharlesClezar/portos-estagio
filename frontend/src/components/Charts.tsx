@@ -248,8 +248,8 @@ const Charts: React.FC<ChartsProps> = ({ activityData, rankingData, isLoading = 
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={topPortsData} layout="horizontal">
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" tickFormatter={formatNumber} />
-                <YAxis dataKey="name" type="category" width={60} />
+                <XAxis dataKey="name" type="category" width={60} />
+                <YAxis type="number" tickFormatter={formatNumber} />
                 <Tooltip
                   formatter={(value: number, name: string, props: any) => [
                     formatNumber(value),
