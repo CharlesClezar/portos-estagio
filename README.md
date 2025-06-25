@@ -2,7 +2,6 @@
 
 Este é um projeto fullstack para visualização e análise de atividades portuárias globais. A aplicação é composta por:
 
-- **Frontend** (React + Vite + Tailwind + ShadCN)
 - **Backend** (FastAPI)
 - **ETL** (Python + SQLAlchemy + Pandas)
 - **Banco de dados** (PostgreSQL + Views e Índices otimizados)
@@ -10,8 +9,6 @@ Este é um projeto fullstack para visualização e análise de atividades portu�
 
 ## Tecnologias Utilizadas
 
-- React + TypeScript
-- Vite + ShadCN UI + TailwindCSS
 - FastAPI + SQLAlchemy
 - PostgreSQL 15
 - Docker e Docker Compose `Obrigatória instalação`
