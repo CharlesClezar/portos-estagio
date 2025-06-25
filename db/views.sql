@@ -57,3 +57,17 @@ FROM port_activity
 GROUP BY portid, portname
 ORDER BY volume_total DESC
 LIMIT 10;
+
+-- ============================
+-- View: Atividade diaria dos portos
+-- ============================
+
+CREATE VIEW vw_atividade_diaria AS
+SELECT
+    date,
+    portid,
+    SUM(import_container + export_container + import_dry_bulk + export_dry_bulk + import_tanker + export_tanker) AS volume_total,
+    SUM(portcalls) AS chamadas
+FROM port_activity
+GROUP BY date, portid
+ORDER BY date;
