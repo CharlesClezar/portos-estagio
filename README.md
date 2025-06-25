@@ -6,7 +6,7 @@ Este é um projeto fullstack para visualização e análise de atividades portu�
 - **Backend** (FastAPI)
 - **ETL** (Python + SQLAlchemy + Pandas)
 - **Banco de dados** (PostgreSQL + Views e Índices otimizados)
-- **Docker** para orquestração de containers
+- **Docker** para orquestração de containers `Obrigatória instalação`
 
 ## Tecnologias Utilizadas
 
@@ -14,7 +14,7 @@ Este é um projeto fullstack para visualização e análise de atividades portu�
 - Vite + ShadCN UI + TailwindCSS
 - FastAPI + SQLAlchemy
 - PostgreSQL 15
-- Docker e Docker Compose
+- Docker e Docker Compose `Obrigatória instalação`
 - Pandas para carga de dados
 
 ## Estrutura do Projeto
