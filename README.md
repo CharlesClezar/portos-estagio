@@ -8,7 +8,7 @@ Este é um projeto fullstack para visualização e análise de atividades portu�
 - **Banco de dados** (PostgreSQL + Views e Índices otimizados)
 - **Docker** para orquestração de containers
 
-## 🔧 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - React + TypeScript
 - Vite + ShadCN UI + TailwindCSS
@@ -17,7 +17,7 @@ Este é um projeto fullstack para visualização e análise de atividades portu�
 - Docker e Docker Compose
 - Pandas para carga de dados
 
-## 📦 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 portos-estagio/
@@ -27,8 +27,12 @@ portos-estagio/
 ├── frontend/        # App React com dashboards
 ├── docker-compose.yml
 ```
+## Fonte dos Dados
 
-## 🚀 Como Executar
+Os dados são provenientes do Kaggle:
+[Daily Port Activity Data and Trade Estimates](https://www.kaggle.com/datasets/arunvithyasegar/daily-port-activity-data-and-trade-estimates/data)
+
+## Como Executar
 
 ### 1. Clone o projeto
 ```bash
@@ -39,7 +43,14 @@ cd portos-estagio
 ### 2. Configure variáveis de ambiente (opcional)
 O `docker-compose` já fornece o `DATABASE_URL`, mas você pode definir manualmente se rodar localmente.
 
-### 3. Execute os containers
+### 3. Faça o download da base de dados
+
+- Acesse o Kaggle
+- Baixe o `Daily_Port_Activity_Data_and_Trade_Estimates.csv` (irá baixar zipado)
+- Descompacte o arquivo
+- Disponibilize o arquivo CSV na pasta etl/
+
+### 4. Execute os containers
 ```bash
 docker compose up --build
 ```
@@ -50,34 +61,29 @@ Isso irá:
 - Disponibilizar a API em `http://localhost:8000`
 - Disponibilizar o frontend em `http://localhost:3000`
 
-### 4. Reexecutar ETL manualmente (opcional)
+### 5. Reexecutar ETL manualmente (opcional)
 ```bash
 docker compose run etl python carregamento.py
 ```
 
-### 5. Aplicar Views e Índices (se ainda não rodou)
+### 6. Aplicar Views e Índices (se ainda não rodou)
 ```bash
 docker compose run etl python init_db.py
 ```
 
-## 📘 Documentação da API
+## Documentação da API
 
 A documentação interativa (Swagger) pode ser acessada em:
 
 [http://localhost:8000/docs](http://localhost:8000/docs)
 
-## 📊 Funcionalidades
+## Funcionalidades
 - Painel resumido (volume total, chamadas, média, portos)
 - Filtros por data, tipo de embarcação, porto
 - Gráficos temporais e distribuições
 - Tabela detalhada dos dados
 - Rankings de maiores portos
 
-## 🔗 Fonte dos Dados
-
-Os dados são provenientes do Kaggle:
-[Daily Port Activity Data and Trade Estimates](https://www.kaggle.com/datasets/arunvithyasegar/daily-port-activity-data-and-trade-estimates/data)
-
 ---
 
-> Projeto desenvolvido como parte do estágio/TCC. Todos os dados são fictícios ou derivados de fontes públicas.
+> Projeto desenvolvido como parte do estágio. Todos os dados são fictícios ou derivados de fontes públicas.
