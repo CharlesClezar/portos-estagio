@@ -1,42 +1,22 @@
 import pytest
-import uuid
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.pool import StaticPool
 from fastapi.testclient import TestClient
-from app.main import app
-from app.database import Base, get_db
+from backend.app.main import app
 
-DATABASE_URL = os.getenv("DATABASE_URL")
+client = TestClient(app)
 
-engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(bind=engine)
+def test_get_resumo():
+    response = client.get("/dashboard/resumo")
+    assert response.status_code == 200
+    data = response.json()
 
-# Create tables in the database
-Base.metadata.create_all(bind=engine)
+    # Verifica se as chaves esperadas estão presentes
+    assert "volume_total" in data
+    assert "chamadas" in data
+    assert "total_portos" in data
+    assert "media_volume" in data
 
-@pytest.fixture(scope="function")
-def db_session():
-    """Create a new database session with a rollback at the end of the test."""
-    connection = engine.connect()
-    transaction = connection.begin()
-    session = TestingSessionLocal(bind=connection)
-    yield session
-    session.close()
-    transaction.rollback()
-    connection.close()
-
-
-@pytest.fixture(scope="function")
-def test_client(db_session):
-    """Create a test client that uses the override_get_db fixture to return a session."""
-
-    def override_get_db():
-        try:
-            yield db_session
-        finally:
-            db_session.close()
-
-    app.dependency_overrides[get_db] = override_get_db
-    with TestClient(app) as test_client:
-        yield test_client
+    # Verifica os tipos dos dados
+    assert isinstance(data["volume_total"], float)
+    assert isinstance(data["chamadas"], int)
+    assert isinstance(data["total_portos"], int)
+    assert isinstance(data["media_volume"], float)
